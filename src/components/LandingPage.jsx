@@ -36,10 +36,17 @@ const LandingPage = () => {
 
         {/* Carousel */}
         <div className="carousel">
-          <div className="carousel-inner">
+          <div className="carousel-track">
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <img
                 key={n}
+                src={`/clothing${n}.jpg`}
+                alt={`Clothing ${n}`}
+              />
+            ))}
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <img
+                key={`dup-${n}`}
                 src={`/clothing${n}.jpg`}
                 alt={`Clothing ${n}`}
               />
@@ -50,7 +57,7 @@ const LandingPage = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="modal" style={{ display: "flex" }}>
+        <div className="modal">
           <div className="modal-content">
             <h2>About the Creator</h2>
             <p>
@@ -100,7 +107,6 @@ const LandingPage = () => {
           </p>
         </div>
       </footer>
-
     </div>
   );
 };
