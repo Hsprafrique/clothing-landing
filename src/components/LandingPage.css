@@ -58,7 +58,7 @@
 .overlay h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #ff8800;
+  color: #ffffff;
 }
 
 /* Buttons */
@@ -113,7 +113,7 @@
 .carousel-track {
   display: flex;
   gap: 10px;
-  animation: scroll 12s linear infinite; /* faster scroll */
+  animation: scroll 8s linear infinite; /* faster scroll */
 }
 
 .carousel-track:hover {

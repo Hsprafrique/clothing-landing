@@ -17,7 +17,7 @@ const LandingPage = () => {
 
       {/* Overlay */}
       <div className="overlay">
-        <h1>Welcome to LOOK GOOD</h1>
+        <h1>Welcome</h1>
 
         <div className="buttons">
           <a
@@ -97,7 +97,7 @@ const LandingPage = () => {
               Instagram
             </a>
 
-            <a href="mailto:yourstore@gmail.com">
+            <a href="mailto:samuelivere92@gmail.com">
               Email
             </a>
           </div>
