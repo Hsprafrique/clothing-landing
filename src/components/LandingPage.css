@@ -1,0 +1,167 @@
+/* LandingPage.css */
+
+/* Reset & Body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Video Background */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Gradient Overlay */
+.overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.8) 0%, 
+    rgba(255,103,0,0.5) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #FF6700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 120px;
+  z-index: 20;
+}
+
+@media(max-width:768px){
+  .logo { width: 80px; }
+}
+
+/* Buttons */
+.btn {
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.shop-btn {
+  background: #FF6700;
+  color: white;
+}
+
+.shop-btn:hover {
+  background: #e65c00;
+}
+
+.about-btn {
+  background: white;
+  color: black;
+}
+
+.about-btn:hover {
+  background: #ccc;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  max-width: 90%;
+  margin-top: 40px;
+}
+
+.carousel-inner {
+  display: flex;
+  animation: slide 15s infinite linear;
+}
+
+.carousel img {
+  width: 200px;
+  margin: 0 10px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.carousel img:hover {
+  transform: scale(1.1);
+}
+
+/* Simple auto-scroll animation */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Modal */
+.modal {
+  display: none; /* controlled by React state */
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  color: black;
+}
+
+.close-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background: #555;
+  color: white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  h1 { font-size: 2rem; }
+  .carousel img { width: 120px; }
+}
