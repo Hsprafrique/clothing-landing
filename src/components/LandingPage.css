@@ -18,10 +18,17 @@
 .logo {
   position: absolute;
   top: 20px;
-  right: 20px; /* move from left to right */
-  transform: none; /* remove translateX */
+  right: 20px;
+  transform: none;
   width: 150px;
   z-index: 10;
+}
+
+/* Shrink logo on mobile */
+@media (max-width: 768px) {
+  .logo {
+    width: 100px;
+  }
 }
 
 /* Video background */
@@ -106,7 +113,11 @@
 .carousel-track {
   display: flex;
   gap: 10px;
-  animation: scroll 20s linear infinite;
+  animation: scroll 12s linear infinite; /* faster scroll */
+}
+
+.carousel-track:hover {
+  animation-play-state: paused; /* pause on hover for a premium feel */
 }
 
 .carousel-track img {
