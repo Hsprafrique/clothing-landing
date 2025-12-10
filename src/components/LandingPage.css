@@ -238,3 +238,44 @@
     gap: 10px;
   }
 }
+/* Ensure buttons sit above video and are clickable */
+.buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto 40px auto;
+  background: #000; /* same as footer */
+  padding: 20px 0;
+  border-radius: 10px;
+  position: relative; /* sits above video */
+  z-index: 10; /* above everything */
+}
+
+/* Button styles */
+.shop-btn {
+  background-color: #ff8800;
+  color: #000;
+}
+
+.shop-btn:hover {
+  background-color: #ffaa33;
+}
+
+.about-btn {
+  background-color: #000;
+  color: #ff8800;
+  border: 2px solid #ff8800;
+}
+
+.about-btn:hover {
+  background-color: #222;
+  color: #ffaa33;
+}
+
+/* Mobile tweak */
+@media (max-width: 768px) {
+  .buttons {
+    padding: 15px 0;
+  }
+}

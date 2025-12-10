@@ -19,21 +19,7 @@ const LandingPage = () => {
       <div className="overlay">
         <h1>Welcome</h1>
 
-        <div className="buttons">
-          <a
-            href="https://wa.me/+14057656304?text=Hi%20I%20want%20to%20place%20an%20order"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn shop-btn"
-          >
-            SHOP NOW
-          </a>
-
-          <button className="btn about-btn" onClick={() => setShowModal(true)}>
-            About the Creator
-          </button>
-        </div>
-
+       
         {/* Carousel */}
         <div className="carousel">
           <div className="carousel-track">
@@ -54,6 +40,21 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+ 
+<div className="buttons">
+          <a
+            href="https://wa.me/+14057656304?text=Hi%20I%20want%20to%20place%20an%20order"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn shop-btn"
+          >
+            SHOP NOW
+          </a>
+
+          <button className="btn about-btn" onClick={() => setShowModal(true)}>
+            About the Creator
+          </button>
+        </div>
 
       {/* Modal */}
       {showModal && (
