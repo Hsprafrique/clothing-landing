@@ -19,7 +19,6 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  transform: none;
   width: 150px;
   z-index: 10;
 }
@@ -36,6 +35,8 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  z-index: 0;
+  pointer-events: none; /* allow clicks through video */
 }
 
 /* Overlay */
@@ -52,7 +53,7 @@
   justify-content: center;
   text-align: center;
   padding: 20px;
-  color: #ff8800;
+  color: #ffffff;
 }
 
 .overlay h1 {
@@ -61,63 +62,23 @@
   color: #ffffff;
 }
 
-/* Buttons */
-.buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s ease;
-  font-weight: bold;
-}
-
-.shop-btn {
-  background-color: #ff8800;
-  color: #000;
-}
-
-.shop-btn:hover {
-  background-color: #ffaa33;
-}
-
-.about-btn {
-  background-color: #000;
-  color: #ff8800;
-  border: 2px solid #ff8800;
-}
-
-.about-btn:hover {
-  background-color: #222;
-  color: #ffaa33;
-}
-
 /* Carousel */
 .carousel {
   width: 100%;
   max-width: 900px;
   overflow: hidden;
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
   border-radius: 10px;
 }
 
 .carousel-track {
   display: flex;
   gap: 10px;
-  animation: scroll 8s linear infinite; /* faster scroll */
+  animation: scroll 8s linear infinite;
 }
 
 .carousel-track:hover {
-  animation-play-state: paused; /* pause on hover for a premium feel */
+  animation-play-state: paused;
 }
 
 .carousel-track img {
@@ -131,6 +92,51 @@
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* Buttons below carousel */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px auto 40px auto;
+  background: rgba(0,0,0,0.5); /* transparent black */
+  padding: 15px 10px;
+  border-radius: 10px;
+  max-width: 600px;
+  position: relative;
+  z-index: 10; /* above video */
+}
+
+/* Individual buttons */
+.shop-btn, .about-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Button colors */
+.shop-btn {
+  background-color: #ff8800;
+  color: #000;
+  border: none;
+}
+.shop-btn:hover {
+  background-color: #ffaa33;
+}
+
+.about-btn {
+  background-color: #000;
+  color: #ff8800;
+  border: 2px solid #ff8800;
+}
+.about-btn:hover {
+  background-color: #222;
+  color: #ffaa33;
 }
 
 /* Modal */
@@ -186,7 +192,6 @@
 .footer-brand {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #ff8800;
 }
 
 .footer-tag {
@@ -217,7 +222,7 @@
   color: #aaa;
 }
 
-/* Responsive */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .overlay h1 {
     font-size: 2rem;
@@ -231,123 +236,16 @@
   .buttons {
     flex-direction: column;
     gap: 15px;
+    padding: 10px;
+  }
+
+  .shop-btn, .about-btn {
+    width: 80%;
+    margin: 0 auto;
   }
 
   .footer-links {
     flex-direction: column;
     gap: 10px;
   }
-}
-/* Ensure buttons sit above video and are clickable */
-.buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto 40px auto;
-  background: #000; /* same as footer */
-  padding: 20px 0;
-  border-radius: 10px;
-  position: relative; /* sits above video */
-  z-index: 10; /* above everything */
-}
-
-/* Button styles */
-.shop-btn {
-  background-color: #ff8800;
-  color: #000;
-}
-
-.shop-btn:hover {
-  background-color: #ffaa33;
-}
-
-.about-btn {
-  background-color: #000;
-  color: #ff8800;
-  border: 2px solid #ff8800;
-}
-
-.about-btn:hover {
-  background-color: #222;
-  color: #ffaa33;
-}
-
-/* Mobile tweak */
-@media (max-width: 768px) {
-  .buttons {
-    padding: 15px 0;
-  }
-}
-/* Buttons below carousel with transparent black bg */
-.buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto 40px auto;
-  background: rgba(0,0,0,0.5); /* transparent black */
-  padding: 15px 10px;
-  border-radius: 10px;
-  max-width: 600px; /* prevent stretching too wide */
-  position: relative;
-  z-index: 10; /* above video */
-}
-
-/* Button sizes */
-.shop-btn, .about-btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.shop-btn {
-  background-color: #ff8800;
-  color: #000;
-  border: none;
-}
-
-.shop-btn:hover {
-  background-color: #ffaa33;
-}
-
-.about-btn {
-  background-color: #000;
-  color: #ff8800;
-  border: 2px solid #ff8800;
-}
-
-.about-btn:hover {
-  background-color: #222;
-  color: #ffaa33;
-}
-
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .buttons {
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .shop-btn, .about-btn {
-    width: 80%; /* fit nicely on mobile */
-  }
-}
-
-/* Fallback for mobile video */
-.video-bg {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none; /* allow clicks through video */
-}
-
-/* Optional: add poster image */
-.video-bg[poster] {
-  background: url('/poster.jpg') center center / cover no-repeat;
 }
